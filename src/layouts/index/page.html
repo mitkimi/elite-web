@@ -1,0 +1,78 @@
+<div class="page">
+  <n-a-v></n-a-v>
+  <vue-particles
+      color="#dedede"
+      :particleOpacity="0.7"
+      :particlesNumber="50"
+      shapeType="circle"
+      :particleSize="6"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="2"
+      :hoverEffect="false"
+      hoverMode="grab"
+      :clickEffect="false"
+      clickMode="push"
+      class="lizi"
+    >
+  </vue-particles>
+  <div class="jumbo">
+    <div class="container">
+      <div class="name-intro">
+        <div class="name">
+          Elite<span>admin Panel</span>
+        </div>
+        <div class="sub-name">
+          Vue 家族的后台面板前端解决方案
+        </div>
+        <div class="buttons">
+          <el-button type="primary" round @click="run('http://preview.elite.ipietech.com', 'link')">预 览</el-button>
+          <el-button round @click="run('','route')">开始使用</el-button>
+        </div>
+      </div>
+      <div class="pic">
+        <img src="../../assets/logo.png" />
+      </div>
+    </div>
+  </div>
+  <div class="introduction section">
+    <div class="container">
+      <div class="title">
+        What can <span>Elite</span> do
+      </div>
+      <div class="content">
+        <div class="list-item" v-for="item,index in 6">
+          <div class="avatar">
+            <img src="" />
+          </div>
+          <div class="name">
+            优雅美观
+          </div>
+          <div class="description">
+            一点一点的来吧 一点一点的来吧 一点一点的来吧
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tech-stack section">
+    <div class="container">
+      <div class="title">
+        <span>Elite</span> 技术栈
+      </div>
+      <div class="content">
+        Vue.js
+        vue-router
+        axios
+        elementUI
+        vuex
+        less
+
+      </div>
+    </div>
+
+  </div>
+</div>

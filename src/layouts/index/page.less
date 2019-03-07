@@ -1,0 +1,121 @@
+.page {
+  .nav {
+    height: 60px;
+    border-bottom: 1px solid #efeff3;
+  }
+  .lizi {
+    height: 70vh;
+    width: 100vw;
+    z-index: -1;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+  .jumbo {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 9;
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+      
+      .name-intro {
+        width: 600px;
+        .name {
+          font-size: 80px;
+          height: 100px;
+          line-height: 100px;
+          color: #666666;
+          span {
+            color: #999999;
+            font-size: 20px;
+            padding-left: 10px;
+          }
+        }
+        .sub-name {
+          padding-left: 5px;
+          color: #999999;
+          font-size: 26px;
+        }
+        .buttons {
+          margin-top: 60px;
+        }
+      }
+      .pic {
+        width: 500px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .introduction {
+    margin-top: 70vh;
+    .content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .list-item {
+        // background: #efeff3;
+        width: 260px;
+        margin: 10px 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        .avatar {
+          margin-top: 40px;
+          width: 80px;
+          height: 80px;
+          background: #efeff3;
+          border-radius: 50%;
+        }
+        .name {
+          color: #666666;
+          margin-top: 30px;
+        }
+        .description {
+          padding: 0 20px;
+          margin-top: 20px;
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
+// 公用样式
+.section {
+  padding: 50px 0;
+}
+.container {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  .title {
+    font-size: 30px;
+    text-align: center;
+    span {
+      font-weight: bold;
+    }
+    // &:after {
+    //   content: ' ';
+    //   display: block;
+    //   margin: 10px auto;
+    //   width: 400px;
+    //   height: 4px;
+    //   background: #333333;
+    // }
+  }
+  .content {
+    margin-top: 50px;
+  }
+}
