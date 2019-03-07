@@ -1,8 +1,9 @@
 import NAV from '../../components/nav'
-
+import FOOT from '../../components/footer'
 export default {
   components: {
-    NAV
+    NAV, 
+    FOOT
   },
   methods: {
     run (uri, mode) {
