@@ -75,4 +75,28 @@
     </div>
 
   </div>
+  <div class="usage section">
+    <div class="container">
+      <div class="title">Let's <span>Elite</span> it</div>
+      <div class="content">
+        <div class="description">
+          在命令行运行以下命令，快速启动开发服务
+        </div>
+        <div class="code">
+<pre lang="bash">
+$ git clone https://github.com/mitkimi/elite.git
+$ cd elite
+$ npm i
+$ npm run watch # 打开浏览器访问 http://localhost:8080
+</pre>
+        </div>
+        <div class="description">
+          需要帮助？请先阅读 <router-link to="">开发文档</router-link> 和 <router-link to="">常见问题</router-link>， 如果未能解决，可以到 <router-link to="">GitHub</router-link> 上 进行提问。
+        </div>
+        <div class="buttons">
+          <el-button type="primary" round @click="run('https://github.com/mitkimi/elite', 'link')">下载Elite</el-button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
