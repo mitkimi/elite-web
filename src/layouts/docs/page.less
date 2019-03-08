@@ -1,0 +1,62 @@
+
+.page {
+  .nav {
+    height: 60px;
+    border-bottom: 1px solid #efeff3;
+  }
+  .doc-body {
+    position: relative;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .menu {
+      width: 300px;
+      height: 100%;
+      background: #ffffff;
+      .el-menu {
+        .el-menu-item {
+          text-align: right;
+        }
+      }
+    }
+    .container {
+      background: #ffffff;
+      min-height: calc(100vh - 60px - 100px);
+      padding: 40px;
+      
+    }
+  }
+}
+
+
+// 公用样式
+.section {
+  padding: 50px 0;
+}
+.container {
+  // min-width: 1000px; // 实际是1080px
+  width: calc(100vw - 300px - 80px);
+  height: 100%;
+  .title {
+    font-size: 30px;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    span {
+      font-weight: bold;
+    }
+    // &:after {
+    //   content: ' ';
+    //   display: block;
+    //   margin: 10px auto;
+    //   width: 400px;
+    //   height: 5px;
+      
+    // }
+  }
+  .content {
+    margin-top: 50px;
+  }
+}

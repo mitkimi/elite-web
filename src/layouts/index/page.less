@@ -79,11 +79,18 @@
       .list-item {
         // background: #efeff3;
         width: 260px;
+        height: 200px;
         margin: 10px 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 30px 20px;
+        &:hover {
+          .avatar {
+            margin-top: 30px;
+            margin-bottom: 10px;
+          }
+        }
         .avatar {
           margin-top: 40px;
           width: 60px;
@@ -94,6 +101,7 @@
           text-align: center;
           box-shadow: 2px 2px 8px 2px rgba(0,0,0,.08);
           border-radius: 50%;
+          transition: all, 0.5s;
         }
         .name {
           color: #666666;
@@ -158,6 +166,8 @@
   .title {
     font-size: 30px;
     text-align: center;
+    width: 400px;
+    margin: 0 auto;
     span {
       font-weight: bold;
     }
@@ -166,8 +176,8 @@
     //   display: block;
     //   margin: 10px auto;
     //   width: 400px;
-    //   height: 4px;
-    //   background: #333333;
+    //   height: 5px;
+      
     // }
   }
   .content {

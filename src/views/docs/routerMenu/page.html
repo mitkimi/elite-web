@@ -1,0 +1,61 @@
+<div class="markdown-mock">
+  <h1>路由和菜单</h1>
+  <p>Elite 为了方便管理和组织成一个关键架构，使用 <em>routers.js</em> 统一管理</p>
+  <pre class="bar bar-single-line ">/src/router/routes.js</pre>
+  <h2>基本结构</h2>
+  <p>在这一部分，脚手架通过结合一些配置文件、基本算法及工具函数，搭建好了路由和菜单的基本框架，主要涉及以下几个模块/功能：</p>
+  <ul>
+    <li><span>路由管理</span> - 通过约定的语法在 <em>routers.js</em> 中配置路由</li>
+    <li><span>菜单生成</span> - 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。</li>
+    <li><span>面包屑</span> - 组件中内置的面包屑也可由脚手架提供的配置信息自动生成。</li>
+  </ul>
+  <p>下面简单介绍下各个模块的基本思路，如果你对实现过程不感兴趣，只想了解应该怎么实现相关需求，可以直接查看需求实例。</p>
+  <h3>路由</h3>
+  <p>目前脚手架中所有的路由都通过 <em>routers.js</em> 来统一管理，在配置中我们增加了一些参数，如 label,icon，来辅助生成菜单。其中：</p>
+  <ul>
+    <li><span>label</span> 和 <span>icon</span> 分别代表生成的菜单项的文本和图标</li>
+    <li><span>path</span> - 当前菜单点击时候的完整路由，例如：<span>/dashboard/welcome</span></li>
+    <li><span>auth</span> - 可以访问这个页面的权限名称，数据类型是 Array</li>
+  </ul>
+  <h3>菜单</h3>
+  <p>菜单根据 <em>routers.js</em> 生成，具体逻辑在 src/components/menu/menus.js 中的 formatter 方法实现。</p>
+  <h3>面包屑</h3>
+  <p>面包屑根据 <em>routers.js</em> 生成，具体逻辑在 src/components/breadCramb/breadCramb.js 中的 formatter 方法实现。</p>
+  <h2>需求实例</h2>
+  <p>一级菜单</p>
+  <pre>
+{
+  icon: 'el-icon-menu',
+  label: '工作台',
+  path: '/dashboard/welcome',
+  auth: ['admin', 'customer'],
+  name: 'Welcome',
+  component: () => import('../views/dashboard/welcome')
+},
+  </pre>
+  <p>二级菜单</p>
+  <pre>
+{
+  icon: 'el-icon-edit-outline',
+  label: '表单页',
+  path: '/dashboard/form',
+  auth: ['admin', 'customer'],
+  children: [
+    {
+      path: '/dashboard/basic-form',
+      label: '基础表单',
+      auth: ['admin', 'customer'],
+      name: 'BasicForm',
+      component: () => import('../views/dashboard/basicForm')
+    },
+    {
+      path: '/dashboard/step-form',
+      label: '分布表单',
+      auth: ['admin'],
+      name: 'StepForm',
+      component: () => import('../views/dashboard/stepForm')
+    }
+  ]
+},
+  </pre>
+</div>

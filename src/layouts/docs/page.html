@@ -1,0 +1,42 @@
+<div class="page">
+  <n-a-v></n-a-v>
+  <div class="doc-body">
+    <div class="menu">
+      <el-menu
+        :default-active="currentPath"
+        class="el-menu"
+        router>
+        <el-menu-item-group>
+          <template slot="title">入门</template>
+          <el-menu-item index="/docs/start-up">开始使用</el-menu-item>
+          <el-menu-item index="/docs/router-menu">路由和菜单</el-menu-item>
+          <el-menu-item index="/docs/layout">布局</el-menu-item>
+          <el-menu-item index="/docs/new-page">新增页面</el-menu-item>
+          <el-menu-item index="/docs/new-component">新增业务组件</el-menu-item>
+          <el-menu-item index="/docs/style">样式</el-menu-item>
+          <el-menu-item index="/docs/api">和服务端进行交互</el-menu-item>
+          <el-menu-item index="/docs/build">构建和发布</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <template slot="title">进阶</template>
+          <el-menu-item index="/docs/charts">图表</el-menu-item>
+          <el-menu-item index="/docs/icons">业务图标</el-menu-item>
+          <el-menu-item index="/docs/mock">Mock 与联调</el-menu-item>
+          <el-menu-item index="/docs/i18n">i18n 国际化</el-menu-item>
+          <el-menu-item index="/docs/error">错误处理</el-menu-item>
+          <el-menu-item index="/docs/auth">权限管理</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <template slot="title">其他</template>
+          <el-menu-item index="/docs/changelog">更新日志</el-menu-item>
+          <el-menu-item index="/docs/qa">常见问题</el-menu-item>
+          <el-menu-item index="/docs/discuss">在线讨论</el-menu-item>
+        </el-menu-item-group>
+      </el-menu>
+    </div>
+    <div class="container">
+      <router-view></router-view>
+    </div>
+  </div>
+  <f-o-o-t></f-o-o-t>
+</div>
