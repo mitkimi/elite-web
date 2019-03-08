@@ -44,21 +44,21 @@
         What can <span>Elite</span> do
       </div>
       <div class="content">
-        <div class="list-item" v-for="item,index in 6">
-          <div class="avatar">
-            <img src="" />
+        <div class="list-item" v-for="item,index in features" :key="index">
+          <div class="avatar" :style="item.style">
+            <span class="iconfont" v-html="item.icon"></span>
           </div>
           <div class="name">
-            优雅美观
+            {{item.title}}
           </div>
           <div class="description">
-            一点一点的来吧 一点一点的来吧 一点一点的来吧
+            {{item.desc}}
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="tech-stack section">
+  <div class="tech-stack section" style="display: none;">
     <div class="container">
       <div class="title">
         <span>Elite</span> 技术栈

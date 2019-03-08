@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('./fonts/iconfont.eot');
+  src: url('./fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/iconfont.woff2') format('woff2'),
+      url('./fonts/iconfont.woff') format('woff'),
+      url('./fonts/iconfont.ttf') format('truetype'),
+      url('./fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .page {
   .nav {
     height: 60px;
@@ -71,9 +86,13 @@
         padding: 30px 20px;
         .avatar {
           margin-top: 40px;
-          width: 80px;
-          height: 80px;
-          background: #efeff3;
+          width: 60px;
+          height: 60px;
+          background: #ffffff;
+          font-size: 24px;
+          line-height: 60px;
+          text-align: center;
+          box-shadow: 2px 2px 8px 2px rgba(0,0,0,.08);
           border-radius: 50%;
         }
         .name {
