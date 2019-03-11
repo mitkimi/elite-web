@@ -1,0 +1,26 @@
+<div class="page">
+  <n-a-v></n-a-v>
+  <div class="doc-body">
+    <div class="menu">
+      <el-menu
+        :default-active="currentPath"
+        class="el-menu"
+        router>
+        <el-menu-item-group>
+          <el-menu-item index="/components/introduction">简介</el-menu-item>
+          <el-menu-item index="/components/avatar-list">用户头像列表</el-menu-item>
+          <el-menu-item index="/components/count-down">倒计时</el-menu-item>
+          <el-menu-item index="/components/growing-number">滚动增长的数字</el-menu-item>
+          <el-menu-item index="/components/nauthorized">权限</el-menu-item>
+        </el-menu-item-group>
+      </el-menu>
+    </div>
+    <div class="container">
+      <div class="content">
+        <router-view></router-view>
+      </div>
+      <f-o-o-t></f-o-o-t>
+    </div>
+  </div>
+
+</div>
