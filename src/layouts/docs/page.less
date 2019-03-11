@@ -15,7 +15,10 @@
       width: 300px;
       height: 100%;
       background: #ffffff;
+      overflow: auto;
       .el-menu {
+        padding-top: 30px;
+        padding-bottom: 60px;
         .el-menu-item {
           text-align: right;
         }
@@ -23,9 +26,12 @@
     }
     .container {
       background: #ffffff;
-      min-height: calc(100vh - 60px - 100px);
-      padding: 40px;
-      
+      height: calc(100vh - 60px);
+      // width: calc(100% - 80px);
+      .content {
+        padding: 0 40px;
+      }
+      overflow: auto;
     }
   }
 }
@@ -37,7 +43,7 @@
 }
 .container {
   // min-width: 1000px; // 实际是1080px
-  width: calc(100vw - 300px - 80px);
+  width: calc(100vw - 300px);
   height: 100%;
   .title {
     font-size: 30px;
