@@ -12,8 +12,11 @@
     "publish": "npm run build && scp -r ./dist/* root@47.96.8.230:/www/wwwroot/elite_ipietech_com"
   },
   "dependencies": {
+    "highlight.js": "^9.15.6",
     "mavon-editor": "^2.7.0",
     "vue": "^2.5.2",
+    "vue-highlight.js": "^3.1.0",
+    "vue-highlightjs": "^1.3.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

@@ -39,7 +39,7 @@ export default {
       } else {
         this.currentPath = `/${mainPath}/*`
       }
-      // console.log(this.currentPath)
+      console.log(this.currentPath)
     }
   }
 }
