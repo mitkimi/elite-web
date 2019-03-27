@@ -23,27 +23,30 @@
   <p>面包屑根据 <em>routers.js</em> 生成，具体逻辑在 src/components/breadCramb/breadCramb.js 中的 formatter 方法实现。</p>
   <h2>需求实例</h2>
   <p>一级菜单</p>
-  <pre>
+<pre v-highlightjs="sourcecode"><code class="javascript">
 {
   icon: 'el-icon-menu',
   label: '工作台',
+  showInMenu: true,
   path: '/dashboard/welcome',
   auth: ['admin', 'customer'],
   name: 'Welcome',
   component: () => import('../views/dashboard/welcome')
 },
-  </pre>
+</code></pre>
   <p>二级菜单</p>
-  <pre>
+<pre v-highlightjs="sourcecode"><code class="javascript">
 {
   icon: 'el-icon-edit-outline',
   label: '表单页',
+  showInMenu: true,
   path: '/dashboard/form',
   auth: ['admin', 'customer'],
   children: [
     {
       path: '/dashboard/basic-form',
       label: '基础表单',
+      showInMenu: true,
       auth: ['admin', 'customer'],
       name: 'BasicForm',
       component: () => import('../views/dashboard/basicForm')
@@ -51,11 +54,12 @@
     {
       path: '/dashboard/step-form',
       label: '分布表单',
+      showInMenu: true,
       auth: ['admin'],
       name: 'StepForm',
       component: () => import('../views/dashboard/stepForm')
     }
   ]
 },
-  </pre>
+</code></pre>
 </div>
