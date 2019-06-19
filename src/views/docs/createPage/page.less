@@ -1,0 +1,20 @@
+.tree {
+  .level {
+    margin-left: 10px;
+    padding-left: 10px;
+    font-family: 'Arial';
+    color: #333333;
+    position: relative;
+    line-height: 25px;
+    cursor: default;
+    &:before {
+      content: '·';
+      position: absolute;
+      left: -15px;
+      top: 0;
+    }
+  }
+  .current {
+    background: linear-gradient(top, #f8f8f9, #efeff3);
+  }
+}

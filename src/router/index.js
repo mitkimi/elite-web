@@ -29,6 +29,21 @@ export default new Router({
           path: 'router-menu',
           name: 'RouterMenu',
           component: () => import('@/views/docs/routerMenu')
+        },
+        {
+          path: 'layout',
+          name: 'RouterMenu',
+          component: () => import('@/views/docs/layout')
+        },
+        {
+          path: 'new-page',
+          name: 'CreatePage',
+          component: () => import('@/views/docs/createPage')
+        },
+        {
+          path: 'new-component',
+          name: 'Createcomponent',
+          component: () => import('@/views/docs/createcomponent')
         }
       ]
     },

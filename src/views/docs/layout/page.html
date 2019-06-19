@@ -1,0 +1,58 @@
+<div class="markdown-mock">
+  <h1>布局</h1>
+  <p>页面整体布局是一个产品最外层的框架结构，往往会包含导航、页脚、侧边栏、通知栏以及内容等。在页面之中，也有很多区块的布局结构。在真实项目中，页面布局通常统领整个应用的界面，有非常重要的作用。</p>
+  <h2>Elite 的布局</h2>
+  <p>在 elite 中，我们抽离了使用过程中的通用布局，都放在 <em>layouts</em> 目录中。</p>
+  <ul>
+    <li>
+      <p>Dashboard：后台页面布局，包含了头部、侧边栏、面包屑和通知栏等</p>
+      <p>elite 采用的是四块布局方案。这种布局方案符合一般人对于后台的认知程度。</p>
+      <el-card style="width: 800px;">
+        <div class="layout-demo">
+          <div class="demo-head">
+            <div class="demo-logo">logo</div>
+            <div class="demo-nav">
+              <div class="demo-breadcrumb">面包屑</div>
+              <div class="info">用户信息和快捷菜单</div>
+            </div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-menu">菜单</div>
+            <div class="demo-main">
+              <div class="demo-main-body">主界面</div>
+            </div>
+          </div>
+        </div>
+      </el-card>
+    </li>
+    <li>
+      <p>Default：空白布局，此布局是用户进入 elite 以后见到的第一个布局页面，默认情况下为一张底图并保持一个加载中的状态。</p>
+      <p>此处可以用来加载和判断用户登录状态等。</p>
+      <el-card style="width: 800px;" v-loading="true" class="default-demo" element-loading-background="rgba(255, 255, 255, 0.6)">
+        <img src="../../../assets/bg.b15182c.png" />
+      </el-card>
+    </li>
+  </ul>
+  <h2>自定义布局</h2>
+  <p>elite 支持自定义布局。您只需要在 <em>layouts</em> 目录下建立一个布局的文件夹，在对应的 html 结构里保留一个 <em>&lt;router-view /&gt;</em> 标签即可完成布局页面的设定</p>
+  <p>同时，您需要在路由中引入您的文件，并且将其挂载到对应位置。例如：</p>
+  <pre v-highlightjs="sourcecode"><code class="javascript">
+import MyLayout from '@/layouts/myLayout'
+
+const Routes = [
+  // ... 一些代码
+  {
+    path: '/my-layout',
+    name: 'MyLayout',
+    showInMenu: false,
+    component: MyLayout,
+    children: [
+      // ... 一些代码
+    ]
+  },
+  // ... 一些代码
+]
+    </code></pre>
+  <h2>使用 elementUI 的布局组件</h2>
+  <p>elementUI 使用的是 24 格布局模式，详情请参考：<a href="https://element.eleme.io/#/zh-CN/component/layout" target="_blank">https://element.eleme.io/#/zh-CN/component/layout</a></p>
+</div>

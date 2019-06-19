@@ -1,0 +1,53 @@
+<div class="markdown-mock">
+  <h1>新增页面</h1>
+  <p>这里的 “页面” 指代一个已经配置了路由，能够通过 url 直接访问的模块。要新建一个页面通常只需要进行简单的配置。</p>
+  <h3>step 1 新增页面文件夹</h3>
+  <p>在 <em>src/views</em> 下进行页面文件的管理，elite 采用的方法是在 views 目录再新建一层进行页面目录的管理。</p>
+  <p>例如，在 dashboard 这个布局下的页面全部存储在<em>src/views/dashboard</em> 目录下</p>
+  <p>在<em>src/views/dashboard</em> 新建 <em>newPage</em> 目录，并且在当前目录新建几个文件：</p>
+  <p><em>index.vue</em></p>
+  <p><em>newPage.html</em></p>
+  <p><em>newPage.js</em></p>
+  <p><em>newPage.less</em></p>
+  <el-card>
+    <div class="tree">
+      <div class="level">
+        <div class="name">src</div>
+        <div class="list">
+          <div class="level"><div class="name">assets</div></div>
+          <div class="level"><div class="name">components</div></div>
+          <div class="level"><div class="name">layout</div></div>
+          <div class="level"><div class="name">routes</div></div>
+          <div class="level">
+            <div class="name">views</div>
+            <div class="list">
+              <div class="level">
+                <div class="name">dashboard</div>
+                <div class="list">
+                  <div class="level">
+                    <div class="name">newPage</div>
+                    <div class="list">
+                      <div class="level current"><div class="name">index.vue</div></div>
+                      <div class="level current"><div class="name">newPage.html</div></div>
+                      <div class="level current"><div class="name">newPage.js</div></div>
+                      <div class="level current"><div class="name">newPage.less</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </el-card>
+  <p>然后在<em>index.vue</em>内部建立 vue 文件格式。把外部文件全部引入</p>
+  <pre v-highlightjs="sourcecode"><code class="html">
+&lt;template src="./newPage.html"&gt;&lt;/template&gt;
+&lt;script src="./newPage.js"&gt;&lt;/script>
+&lt;style src="./newPage.less" lang="less" scoped&gt;&lt;/style&gt;
+  </code></pre>
+  <p>然后在对应的文件里进行相关的开发即可。</p>
+  <h3>step 2 在路由里加入对应的文件</h3>
+  <p>加入菜单和路由的方式请参照 <router-link to="/docs/router-menu">路由和菜单</router-link> 中介绍的完成。加好后，访问<em>http://localhost:8080/dashboard/new-page</em> 就可以看到新页面了。</p>
+</div>

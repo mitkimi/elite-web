@@ -1,0 +1,53 @@
+<div class="markdown-mock">
+  <h1>新增业务组件</h1>
+  <p>对于一些可以被多处引用的功能模块，建议提炼成业务组建统一管理。这些组件一般有以下特征：</p>
+  <ul>
+    <li>只负责一块相对独立、稳定的功能；</li>
+    <li>没有单独的路由配置；</li>
+    <li>可能是纯静态的，也有可能包含自己的 data 或 state（vuex），接受其伏组件传递参数控制。</li>
+  </ul>
+  <h3>新增组件文件夹</h3>
+  <p>在 <em>src/component</em> 下进行页面文件的管理。</p>
+  <p>例如，在 dashboard 这个布局下的页面全部存储在<em>src/views/dashboard</em> 目录下</p>
+  <p>在<em>src/views/dashboard</em> 新建 <em>newComponent</em> 目录，并且在当前目录新建几个文件：</p>
+  <p><em>index.vue</em></p>
+  <p><em>newComponent.html</em></p>
+  <p><em>newComponent.js</em></p>
+  <p><em>newComponent.less</em></p>
+  <el-card>
+    <div class="tree">
+      <div class="level">
+        <div class="name">src</div>
+        <div class="list">
+          <div class="level"><div class="name">assets</div></div>
+          <div class="level">
+            <div class="name">components</div>
+            <div class="list">
+              <div class="level">
+                <div class="name">newComponent</div>
+                <div class="list">
+                  <div class="level current"><div class="name">index.vue</div></div>
+                  <div class="level current"><div class="name">newComponent.html</div></div>
+                  <div class="level current"><div class="name">newComponent.js</div></div>
+                  <div class="level current"><div class="name">newComponent.less</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="level"><div class="name">layout</div></div>
+          <div class="level"><div class="name">routes</div></div>
+          <div class="level">
+            <div class="name">views</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </el-card>
+  <p>然后在<em>index.vue</em>内部建立 vue 文件格式。把外部文件全部引入</p>
+  <pre v-highlightjs="sourcecode"><code class="html">
+&lt;template src="./newComponent.html"&gt;&lt;/template&gt;
+&lt;script src="./newComponent.js"&gt;&lt;/script>
+&lt;style src="./newComponent.less" lang="less" scoped&gt;&lt;/style&gt;
+  </code></pre>
+  <p>然后在对应的文件里进行相关的开发即可。</p>
+</div>
