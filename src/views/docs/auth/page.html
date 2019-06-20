@@ -1,0 +1,40 @@
+<div class="markdown-mock">
+  <h1>权限管理</h1>
+  <p>权限控制是中后台系统中常见的需求之一，你可以利用我们提供的权限控制组件，实现一些基本的权限控制功能，脚手架中也包含了几个简单示例以提供参考。</p>
+  <h2>应用实例</h2>
+  <p>通过对数据的组织及权限组件的应用，脚手架实现了基本的权限管理。下面简单介绍了几个常见的场景的应用方式。</p>
+  <h3>控制菜单和路由显示</h3>
+  <p>在路由配置文件 <em>./router/routes.js</em> 中可以看到在每一级路由中都存在几个语义化的属性：</p>
+  <p>例如</p>
+  <pre v-highlightjs="sourcecode"><code class="javascript">
+{
+  icon: 'el-icon-menu',
+  label: '工作台',
+  path: '/dashboard',
+  auth: ['admin', 'customer'],
+  name: 'Dashboard',
+  showInMenu: true,
+  component: Dashboard,
+  children: [
+    {
+      label: '工作台',
+      path: 'welcome',
+      auth: ['admin', 'customer'],
+      name: 'Welcome',
+      showInMenu: true,
+      component: () => import('@/views/dashboard/dashboard')
+    }
+  ]
+}</code></pre>
+  <p>下面介绍这些属性的含义和设置方法</p>
+  <ul>
+    <li><em>showInMenu</em> 属性是一个布尔型的属性。它手动控制着当前菜单是否在菜单栏中渲染（展示）。通常情况下，我们仅在一些例如详情页不需要渲染在菜单的情况下手动设置这个属性。不设置的情况下默认为 false</li>
+    <li>
+      <em>auth</em> 属性是一个数组类型的属性。
+      <p>数组内的元素为字符串，预示着当前菜单可以在拥有此权限角色的用户登录时渲染。</p>
+      <p>元素字符串的意义可以由后端定义。例如用户 admin 的权限角色是“admin”，用户 user1 的权限角色是 “customer”。在登录时要求后端返回一个权限角色。</p>
+      <p>例如 admin 用户登录后，elite 在渲染菜单时会自动判断，显示 admin 用户才能看到的菜单。也就是说，当某一个菜单的 auth 属性里没有 customer 这个权限角色时，这个菜单是不会被渲染的。</p>
+      <p>当需要修改当前权限时，直接在 auth 数组中增减相关的权限角色字符串即可。</p>
+    </li>
+  </ul>
+</div>

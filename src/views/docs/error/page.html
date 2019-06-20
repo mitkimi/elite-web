@@ -1,0 +1,24 @@
+<div class="markdown-mock">
+  <h1>错误处理</h1>
+  <h2>使用 ElementUI 提供的错误提示方式</h2>
+  <p>Element 有以下 种错误提示方式</p>
+  <ol>
+    <li>message - <el-button type="text" @click="$message.error('message 的错误提示')">demo</el-button></li>
+    <li>
+      alert
+      <el-alert
+        title="错误提示的文案"
+        type="error">
+      </el-alert>
+    </li>
+    <li>notice - <el-button type="text" @click="$notify.error({title: '错误',message: '这是一条错误的提示消息'})">demo</el-button></li>
+  </ol>
+  <p>同时，您也可以使用模态框（对话框）来提示错误。- <el-button type="text" @click="$alert('这是一段错误提示的文案', '错误提示', {
+    confirmButtonText: '确定'
+  });">demo</el-button></p>
+  <p>以上错误提示均比较轻，适合于提示一些不太重要或者当前页面可以继续处理并完成的错误。</p>
+  <h2>使用异常页面进行提示</h2>
+  <p>Elite 提供了错误页面的提示方式，目前的样例中，提供了 <em>403</em> <em>404</em> <em>500</em> 三种常见的服务器错误的报错页面，您也可以根据实际情况编写自己的页面，并且在发生相关错误是直接 302 到对应的页面路由上去。</p>
+  <h2>使用结果页面进行提示</h2>
+  <p>Elite 提供了 成功页 和 失败页 两种页面的结构，失败页也可以用来提示错误。可以通过请求后的回调函数内 push 路由到失败页进行页面的展示。样例代码就不在这边赘述了。</p>
+</div>

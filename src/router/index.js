@@ -70,6 +70,31 @@ const vueRouter = new Router({
           path: 'icons',
           name: 'Icons',
           component: () => import('@/views/docs/icons')
+        },
+        {
+          path: 'error',
+          name: 'Error',
+          component: () => import('@/views/docs/error')
+        },
+        {
+          path: 'auth',
+          name: 'Auth',
+          component: () => import('@/views/docs/auth')
+        },
+        {
+          path: 'changelog',
+          name: 'ChangeLog',
+          component: () => import('@/views/docs/changelog')
+        },
+        {
+          path: 'qa',
+          name: 'QA',
+          component: () => import('@/views/docs/qa')
+        },
+        {
+          path: 'discuss',
+          name: 'Discuss',
+          component: () => import('@/views/docs/discuss')
         }
       ]
     },
