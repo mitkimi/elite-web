@@ -1,0 +1,22 @@
+<div class="markdown-mock">
+  <h1>样式</h1>
+  <p>这篇文档主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference" target="_blank">MDN 文档</a>。</p>
+  <h2>less</h2>
+  <p>默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 <a href="http://lesscss.org">less</a> 的相关特性。</p>
+  
+  <h2>scoped</h2>
+  <p>在实际开发过程中，有以下这么集中情况比较常见和明显：</p>
+  <ul>
+    <li>全局污染 ———— CSS 文件中的样式通常全局生效，不同文件名重的同名选择器会根据 build 后生成文件先后顺序，后面的样式会把前面的覆盖；</li>
+    <li>繁杂的选择器 ———— 为了避免上面的问题，编写样式时带上限制范围，变得越来越长。一个元素上的选择器个数也会变多。</li>
+  </ul>
+  <p>为了解决上述问题，我们默认打开了样式 scoped，这样可以使得无论如何命名，选择器都是在当前组件内折腾，不会影响到外部样式。</p>
+  <h2>class 和 id 的命名规则：BEM</h2>
+  <pre class="bar bar-single-line ">BEM 是块 (Block)、元素 (Element)、修饰符 (Modifier) 的缩写，利用bong的区块、功能以及样式来给元素命名。这三个部分使用双下划綫 (__) 或者双杠 (--) 连接。</pre>
+<pre v-highlightjs="sourcecode"><code class="css">
+.block {} /* 代表更高级别的组件 */
+.block__element {} /* 代表 block 的后代，用于形成一个完整的 block 整体 */
+.block--modifier {} /* 代表 block 的不同状态或不同版本 */
+</code></pre>
+  <p>id 一般参与样式，命名使用驼峰。给 js 调用钩子时设置为 js_*</p>
+</div>

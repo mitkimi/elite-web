@@ -1,0 +1,50 @@
+<div class="markdown-mock">
+  <h1>和服务端进行交互</h1>
+  <p>Elite 是基于 Vue 技术展的单页面应用，我们提供的前端代码是模拟数据的开发模式，通过 API 的形式和任何技术展的服务端应用一起工作。下面简单介绍和服务端交互的基本写法。</p>
+  <h2>前端请求流程</h2>
+  <p>在 Elite 中，一个完整的前端 UI 交互到服务端处理流程是这样的：</p>
+  <ol>
+    <li>UI 组件交互操作</li>
+    <li>通过解构引用的 get/post 方法将要请求的 url 和参数传递给 axios</li>
+    <li>使用封装的 axios 发送请求</li>
+    <li>获取服务端返回，抛出 Promise</li>
+    <li>更新页面 data</li>
+  </ol>
+  <p>从流程可以看出，为了方便开发者管理、修改代码以及方便团队内新人快速上手，我们减少了把数据处理的部分交给单独的文件处理的过程。直接在调用 method 里面直接进行处理。</p>
+  <p>其中，封装的 axios 工具存储在 <em>utilitys</em> 目录下的 <em>ipAxios.js</em> 中，便于统一管理请求发送或在请求头中带 token 等。</p>
+  <p>例如在登录流程中一个发送登录请求的例子：</p>
+<pre v-highlightjs="sourcecode"><code class="javascript">
+import { post } from '@/utilitys/ipAxios'
+
+const Page = {
+  data () {
+    return {
+      username: null,
+      password: null,
+      pageData: []
+    }
+  },
+  methods: {
+    async handleSubmit () {
+      const uri = '/passport/signin'
+      const params = {
+        username: this.username,
+        password: this.password,
+      }
+      const {data: res} = await post(uri, params)
+      if (res.code >= 0) {
+        this.$message.success('登录成功')
+        this.$router.push({
+          path: '/dashboard/welcome'
+        })
+      } else {
+        this.$message.error(`登录失败：${res.message}`)
+      }
+    }
+  }
+}
+export deafult Page
+</code></pre>
+  <h2>浏览器跨域</h2>
+  <p>在实际开发过程中，我们通常使用服务端 cors 的方式处理浏览器跨域问题。在前端不做跨域处理。</p>
+</div>

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // import HelloWorld from '@/components/HelloWorld'
 import Index from '@/layouts/index'
 import Docs1 from '@/layouts/docs'
 import Components1 from '@/layouts/components'
 
 Vue.use(Router)
-
-export default new Router({
+const vueRouter = new Router({
   mode: 'history',
   routes: [
     {
@@ -44,6 +45,31 @@ export default new Router({
           path: 'new-component',
           name: 'Createcomponent',
           component: () => import('@/views/docs/createcomponent')
+        },
+        {
+          path: 'style',
+          name: 'Style',
+          component: () => import('@/views/docs/style')
+        },
+        {
+          path: 'api',
+          name: 'Api',
+          component: () => import('@/views/docs/api')
+        },
+        {
+          path: 'build',
+          name: 'Build',
+          component: () => import('@/views/docs/build')
+        },
+        {
+          path: 'charts',
+          name: 'Chart',
+          component: () => import('@/views/docs/charts')
+        },
+        {
+          path: 'icons',
+          name: 'Icons',
+          component: () => import('@/views/docs/icons')
         }
       ]
     },
@@ -61,3 +87,14 @@ export default new Router({
     }
   ]
 })
+vueRouter.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
+
+vueRouter.afterEach(() => {
+  NProgress.done()
+  window.scrollTo(0, 0)
+})
+
+export default vueRouter

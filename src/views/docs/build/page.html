@@ -1,0 +1,39 @@
+<div class="markdown-mock">
+  <h1>构建和发布</h1>
+  <h2>构建</h2>
+  <p>在项目开发完毕，只需要运行一行命令就可以打包你的应用：</p>
+  <pre class="bar bar-single-line ">
+npm run build</pre>
+  <p>webpack 会自动将项目打包，并且将打包好的文件存入 <em>./dist</em> 目录，如果需要自定义构建，可以通过 <em>./config/index.js</em> 进行配置，详情请参考 webpack 的文档。</p>
+  <h2>发布</h2>
+  <p>项目打包完成后，将 <em>./dist</em> 目录下的所有文件上传至您的 nginx/apache 网站目录下即可。</p>
+  <p>我们强烈建议您使用 jenkins 配置自动构建，仅需在 jenkins 的构建过程中选择 bash，然后输入以下几行代码</p>
+  <pre class="bar bar-single-line ">
+此处假定你的服务器 ip 是：192.168.1.100
+假定你已经配置到当前应用的目录在 /www/wwwroot/yoursite/</pre>
+  <p>确保您的 jenkins 已经把共钥发送给了服务器（此处一般由运维工程师完成）</p>
+  <pre v-highlightjs="sourcecode"><code class="bash">
+npm run build
+scp -r ./dist/* root@192.168.1.100:/www/wwwroot/yoursite</code></pre>
+  <p>您也可以把以上第二行 bash 指令存入 <em>package.json</em> 的 script 中，然后只在jenkins中运行一个发布指令，如下：</p>
+  <pre v-highlightjs="sourcecode"><code class="json">
+{
+  "name": "elite-pcsite",
+  ... some code ...
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "lint": "eslint --ext .js,.vue src",
+    "build": "node build/build.js",
+    "publish": "npm run build && scp -r ./dist/* root@192.168.1.100:/www/wwwroot/yoursite
+  },
+  "dependencies": {
+    "highlight.js": "^9.15.6",
+    "mavon-editor": "^2.7.0",
+    "nprogress": "^0.2.0",
+    ... some code ...
+  },
+  ... some code ...
+}
+</code></pre>
+</div>

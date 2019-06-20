@@ -1,0 +1,95 @@
+<div class="markdown-mock">
+  <h1>图表</h1>
+  <p>在 Elite 里可以根据您的实际需求安装任何的图表插件。在以下案例中，我们以引入百度的 <a href="https://echarts.baidu.com/" target="_blank">echarts</a> 为例。使用其他图表库请自行 google 您使用的图表库在 vue 下的使用方法。</p>
+  <h2>使用 echarts</h2>
+  <p>我们在 Elite 中已经预装了 echarts，如果您下载的版本没有安装 echarts，请按照以下方法安装</p>
+<pre v-highlightjs="sourcecode"><code class="bash">
+npm install echarts --save-dev
+</code></pre>
+  <pre class="bar bar-single-line">在 <em>@/components</em> 目录下，我们编写了一个叫做 <em>pieChart</em> 的业务组件，已经封装了部分代码，可以作为参考</pre>
+  <p>在组件的 <em>template</em> 标签内创建一个 <em>div</em> 标签作为引入 echarts 的区块，并且加上 <em>ref</em> 属性作为识别器。</p>
+<pre v-highlightjs="sourcecode"><code class="html">
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div class="my-chart" ref="myChart"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+  <p>然后在 js 里获取数据（例子里使用的是加数据）并且执行渲染</p>
+  <pre v-highlightjs="sourcecode"><code class="javascript">
+import echarts from 'echarts'
+require('echarts/lib/chart/line')
+
+export default {
+  name: 'r-echarts-line',
+  data () {
+    return {
+      // myChart实例
+      myChart: {},
+      option: {
+        title: {
+          text: ''
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['营销', '联盟广告', '视频广告']
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '营销',
+            type: 'line',
+            stack: '总量',
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '联盟广告',
+            type: 'line',
+            stack: '总量',
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '视频广告',
+            type: 'line',
+            stack: '总量',
+            data: [150, 232, 201, 154, 190, 330, 410]
+          }
+        ]
+      }
+
+    }
+  },
+  mounted () {
+    this.setEchart()
+  },
+  methods: {
+    setEchart () {
+      const dom = this.$refs.mychart
+      this.myChart = echarts.init(dom)
+      this.myChart.setOption(this.option)
+    }
+
+  }
+}
+</code></pre>
+</div>
