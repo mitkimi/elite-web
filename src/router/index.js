@@ -107,6 +107,11 @@ const vueRouter = new Router({
           path: 'introduction',
           name: 'Introduction',
           component: () => import('@/views/docs/startUp')
+        },
+        {
+          path: 'port-screen',
+          name: 'PortScreen',
+          component: () => import('@/views/components/screen')
         }
       ]
     }

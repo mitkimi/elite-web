@@ -1,0 +1,67 @@
+<div class="markdown-mock">
+  <h1>机场大屏</h1>
+  <p>机场大屏是一个模拟机场接机大屏幕的自动滚动效果的组件</p>
+  <pre class="bar bar-single-line">这个组件是机场大屏上每一条航班的单独模块的展示，组件不含样式，可以自定义样式</pre>
+  <ul>
+    <li>向上翻动效果</li>
+    <div class="port-screen">
+      <transition name="el-zoom-in-top">
+        <div class="item" v-for="item,index in data" v-if="current === index">{{item.text}}</div>
+      </transition>
+    </div>
+    <li>向左缩放效果</li>
+    <div class="port-screen">
+      <transition name="el-zoom-in-left">
+        <div class="item" v-for="item,index in data" v-if="current === index">{{item.text}}</div>
+      </transition>
+    </div>
+    <li>淡入淡出效果</li>
+    <div class="port-screen">
+      <transition name="el-fade-in">
+        <div class="item" v-for="item,index in data" v-if="current === index">{{item.text}}</div>
+      </transition>
+    </div>
+    <li>向上擦除效果</li>
+    <div class="port-screen">
+      <el-collapse-transition>
+        <div class="item" v-for="item,index in data" v-if="current === index">{{item.text}}</div>
+      </el-collapse-transition>
+    </div>
+  </ul>
+  <h2>实现原理</h2>
+  <p>设置定时器，每隔若干秒更新一次。每次更新前清除 dom 结构，然后通过 elementUI 提供的 transition 组件进行渲染。</p>
+  <h2>使用方法</h2>
+  <h3>引入并注册当前组件</h3>
+<pre v-highlightjs="sourcecode"><code class="javascript">
+import PortScreen from '@/components/portScreen'
+
+export default {
+  components: {
+    PortScreen
+  },
+  // ... some code ...
+}
+</code></pre>
+  <h3>在虚拟 DOM 中插入当前组件，并且传入必备值</h3>
+<pre v-highlightjs="sourcecode"><code class="html">
+&lt;port-screen :data="data" :period="10"&gt;&lt;/port-screen&gt;
+</code></pre>
+  <h5>传入 data 数据格式：</h5>
+  <p>其中，最外层数组内的元素为用来循环播放的每一行数据，每个元素内为用来渲染这一行数据的每一列数据，其中包活类名和文字</p>
+  <p>类名用来方便 css 对其进行样式修改。</p>
+<pre v-highlightjs="sourcecode"><code class="javascript">
+[
+  [
+    {
+      className: '', // String 当前一条数据中第 index 列的 dom 类名
+      text: '', // String 当前列显示的文字
+    },
+    // ...
+  ],
+  // ...
+]
+</code></pre>
+  <h5>传入 peroid 数据格式</h5>
+  <p>peroid 传入值应为 Number 型，表示每隔 period 秒进行一次更新</p>
+  <p>非必填项，默认 10 秒</p>
+</div>
