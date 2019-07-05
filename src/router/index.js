@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-// import HelloWorld from '@/components/HelloWorld'
 import Index from '@/layouts/index'
 import Docs1 from '@/layouts/docs'
 import Components1 from '@/layouts/components'
@@ -106,7 +105,7 @@ const vueRouter = new Router({
         {
           path: 'introduction',
           name: 'Introduction',
-          component: () => import('@/views/docs/startUp')
+          component: () => import('@/views/components/introduction')
         },
         {
           path: 'port-screen',
