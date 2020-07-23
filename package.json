@@ -1,6 +1,6 @@
 {
   "name": "elite-pcsite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "elite introduction and documention",
   "author": "田昊天 <mitkimi@163.com>",
   "private": true,
@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "publish": "npm run build && scp -r ./dist/* root@47.96.8.230:/www/wwwroot/elite_ipietech_com"
+    "upload": "scp -r ./dist/* root@47.104.80.66:/home/www/elite@series/web/dist"
   },
   "dependencies": {
     "highlight.js": "^9.15.6",

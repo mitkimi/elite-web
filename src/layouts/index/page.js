@@ -32,8 +32,8 @@ export default {
             color: '#9962df',
             boxShadow: '2px 2px 8px 2px #9962df40'
           },
-          title: '国际化（2.x上线）',
-          desc: '业界通用的国际化方案'
+          title: 'typescript',
+          desc: '使用 ts 规范代码，避免问题上线后才初心啊'
         },
         {
           icon: '&#xe61b;',
