@@ -12,7 +12,7 @@
     "upload": "scp -r ./dist/* root@47.104.80.66:/home/www/elite@series/web/dist"
   },
   "dependencies": {
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.1.2",
     "mavon-editor": "^2.7.0",
     "nprogress": "^0.2.0",
     "vue": "^2.5.2",
